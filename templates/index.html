@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CortexCop.AI — Crime Prediction System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>🧠 CortexCop.AI</h1>
+    <div id="status">
+      <span id="statusDot" class="status-dot online"></span>
+      <span id="statusText">System Online</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="map"></section>
+
+    <section id="chatbox">
+      <div id="chatlog"></div>
+
+      <div id="suggestions">
+        <p><b>Quick Commands:</b></p>
+        <div class="question-btns">
+          <button onclick="askPreset('Show high-risk zones')">🔴 High-Risk Areas</button>
+          <button onclick="askPreset('Show safe areas')">🟢 Safe Zones</button>
+          <button onclick="askPreset('Generate patrol plan')">🚓 Patrol Plan</button>
+          <button onclick="askPreset('Give daily summary')">📊 Summary</button>
+        </div>
+      </div>
+
+      <div id="input-area">
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CortexCop.AI | Intelligent Safety Dashboard</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
